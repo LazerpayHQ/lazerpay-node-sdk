@@ -1,6 +1,15 @@
-export const sum = (a: number, b: number) => {
-  if ('development' === process.env.NODE_ENV) {
-    console.log('boop');
+import * as Types from './utils/types';
+import Payment from './services/Pay';
+
+class LazerPay {
+  apiKey: string;
+  Payment: Payment;
+
+  constructor(apiKey: string) {
+    this.apiKey = apiKey;
+    this.Payment = new Payment(apiKey);
   }
-  return a + b;
-};
+}
+
+module.exports = LazerPay;
+export { Types };
