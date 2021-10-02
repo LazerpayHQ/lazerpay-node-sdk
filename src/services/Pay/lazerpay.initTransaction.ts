@@ -10,13 +10,23 @@ type TransactionData = {
 
 export default async function(args: TransactionData) {
   const { amount, customer_name, customer_email, apiKey } = args;
+
+  // Request headers payload
+  const headers = {
+    'Content-Type': 'application/json',
+    'x-api-key': apiKey,
+  };
   try {
-    const response = await axios.post(API_URL_INIT_TRANSACTION, {
-      amount,
-      customer_name,
-      customer_email,
-      apiKey,
-    });
+    const response = await axios.post(
+      API_URL_INIT_TRANSACTION,
+      {
+        amount,
+        customer_name,
+        customer_email,
+        apiKey,
+      },
+      { headers }
+    );
 
     return response.data;
   } catch (err) {
