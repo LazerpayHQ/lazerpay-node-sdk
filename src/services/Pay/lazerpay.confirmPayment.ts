@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { API_URL_CONFIRM_TRANSACTION } from '../../utils/constants';
+import { LazerApi, setApiKey } from '../../utils/api';
 
 type TransactionData = {
   address: string;
@@ -9,19 +9,11 @@ type TransactionData = {
 export default async function(args: TransactionData) {
   const { address, apiKey } = args;
 
-  // Request headers payload
-  const headers = {
-    'Content-Type': 'application/json',
-    'x-api-key': apiKey,
-  };
   try {
-    const response = await axios.post(
-      API_URL_CONFIRM_TRANSACTION,
-      {
-        address,
-      },
-      { headers }
-    );
+    await setApiKey(apiKey);
+    const response = await LazerApi.post(API_URL_CONFIRM_TRANSACTION, {
+      address,
+    });
 
     return response.data;
   } catch (err) {
