@@ -1,7 +1,8 @@
 export interface TransactionPayloadData {
   customer_name: string;
   customer_email: string;
-  amount: number;
+  amount: string;
+  coin: string;
 }
 export interface ConfirmTransactionPayloadData {
   address: string;

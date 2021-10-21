@@ -11,9 +11,9 @@ export default async function(args: TransactionData) {
 
   try {
     await setApiKey(apiKey);
-    const response = await LazerApi.post(API_URL_CONFIRM_TRANSACTION, {
-      address,
-    });
+    const response = await LazerApi.post(
+      `${API_URL_CONFIRM_TRANSACTION}/${address}`
+    );
 
     return response.data;
   } catch (err) {

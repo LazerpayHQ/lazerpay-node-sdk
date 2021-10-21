@@ -1,4 +1,4 @@
-export const API_URL = 'http://localhost:3000/api';
+export const API_URL = 'https://lazerpay.herokuapp.com/api/v1';
 
-export const API_URL_INIT_TRANSACTION = `${API_URL}/init-transaction`;
-export const API_URL_CONFIRM_TRANSACTION = `${API_URL}/confirm-transaction`;
+export const API_URL_INIT_TRANSACTION = `${API_URL}/transaction/initialize`;
+export const API_URL_CONFIRM_TRANSACTION = `${API_URL}/transaction/verify`;

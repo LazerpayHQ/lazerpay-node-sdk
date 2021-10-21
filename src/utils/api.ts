@@ -1,7 +1,7 @@
 import { API_URL } from './constants';
-import axios, { AxiosInstance } from 'axios';
+import axios from 'axios';
 
-export const LazerApi: AxiosInstance = axios.create({
+export const LazerApi: any = axios.create({
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
@@ -11,7 +11,7 @@ export const LazerApi: AxiosInstance = axios.create({
 export const setApiKey = async (apiKey: string) => {
   try {
     if (apiKey !== null) {
-      LazerApi.defaults.headers?.common['x-api-key'] = apiKey;
+      LazerApi.defaults.headers.common['x-api-key'] = apiKey;
     }
   } catch {
     throw new Error('Error setting API key');

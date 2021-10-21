@@ -11,5 +11,5 @@ class LazerPay {
   }
 }
 
-module.exports = LazerPay;
+export default LazerPay;
 export { Types };
