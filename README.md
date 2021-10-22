@@ -1,5 +1,5 @@
 <p>
-<img title="Lazerpay" src="https://drive.google.com/file/d/1pNCrFGdueMCspyAFfVzwhQ3X8QnCtRFM/view?usp=sharing" />
+<img title="Lazerpay" src="https://raw.githubusercontent.com/LazerPay-Finance/website/master/public/images/logo-blue-variant.svg?token=AJHZVGPDKXS5ZPZ5FFLGYJ3BPP7ZM" />
 </p>
 # Lazerpay v1 NodeJS SDK
 
