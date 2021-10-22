@@ -6,10 +6,8 @@ dotenv.config();
 describe('#Transaction module', () => {
   const waitTime = (minutes: number) =>
     new Promise(resolve => setTimeout(resolve, minutes * 60 * 1000));
-  //const api_key = process.env.LAZER_API_KEY;
-  const lazer = new LazerPay(
-    'lazerpay_test_yh7MZDCpauhS0vgDkqEcMbPfSW0MzLU8Z6d9mvTm4bGF7zQIqT'
-  );
+  const api_key = process.env.LAZER_API_KEY;
+  const lazer = new LazerPay(api_key);
   jest.setTimeout(300000000);
 
   let address: string;
