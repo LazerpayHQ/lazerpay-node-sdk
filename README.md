@@ -10,7 +10,7 @@
 ```javascript
 const LazerPay = require('lazerpay-node-sdk');
 
-const lazerpay = new LazerPAY(API_KEY);
+const lazerpay = new LazerPay(API_KEY);
 ```
 
 For staging, Use TEST API Keys and for production, use LIVE API KEYS.
@@ -30,7 +30,7 @@ This describes to allow your customers to initiate a crypto payment transfer.
 ```javascript
 const LazerPay = require('lazerpay-node-sdk');
 
-const lazerpay = new LazerPAY(API_KEY);
+const lazerpay = new LazerPay(API_KEY);
 
 const payment_tx = async () => {
   try {
@@ -57,7 +57,7 @@ This describes to allow you confirm your customers transaction after payment has
 ```javascript
 const LazerPay = require('lazerpay-node-sdk');
 
-const lazerpay = new LazerPAY(API_KEY);
+const lazerpay = new LazerPay(API_KEY);
 
 const confirm_tx = async () => {
   try {
