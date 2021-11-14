@@ -37,8 +37,9 @@ const payment_tx = async () => {
     const transaction_payload = {
       customer_name: 'Njoku Emmanuel',
       customer_email: 'kalunjoku123@gmail.com',
-      amount: '10',
       coin: 'USDC',
+      currency: 'NGN',
+      fiatAmount: '10',
     };
 
     const response = await lazer.Payment.initializePayment(transaction_payload);
@@ -67,6 +68,25 @@ const confirm_tx = async () => {
 
     const response = await lazer.Payment.confirmPayment(payload);
 
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
+
+#### `Get Accepted Coins`
+
+This gets the list of accepted cryptocurrencies on Lazerpay
+
+```javascript
+const LazerPay = require('lazerpay-node-sdk');
+
+const lazerpay = new LazerPay(API_KEY);
+
+const get_accepted_coins = async () => {
+  try {
+    const response = await lazer.Payment.getAcceptedCoins();
     console.log(response);
   } catch (error) {
     console.log(error);

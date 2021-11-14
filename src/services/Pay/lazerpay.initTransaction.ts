@@ -6,13 +6,19 @@ type TransactionData = {
   customer_name: string;
   customer_email: string;
   coin: string;
+  currency: string;
   apiKey: string;
 };
 
 export default async function(args: TransactionData) {
-  const { amount, coin, customer_name, customer_email, apiKey } = args;
-
-  console.log(args, 'ARGUMENTS');
+  const {
+    amount,
+    currency,
+    customer_name,
+    customer_email,
+    apiKey,
+    coin,
+  } = args;
 
   try {
     await setApiKey(apiKey);
@@ -20,12 +26,12 @@ export default async function(args: TransactionData) {
       customer_name,
       customer_email,
       coin,
+      currency,
       amount,
     });
 
-    return response.data;
+    return response?.data;
   } catch (err) {
-    console.log(err);
     return err;
   }
 }
