@@ -26,7 +26,7 @@ describe('#Transaction module', () => {
       const response = await lazer.Payment.initializePayment(
         transaction_payload
       );
-
+      console.log(response?.data);
       expect(response.status).toBe('success');
     } catch (e) {
       console.log(e);
