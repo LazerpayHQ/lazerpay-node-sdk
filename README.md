@@ -10,11 +10,11 @@
 ```javascript
 const LazerPay = require('lazerpay-node-sdk');
 
-const lazerpay = new LazerPay(API_KEY);
+const lazerpay = new LazerPay(LAZER_PUBLIC_KEY);
 ```
 
 For staging, Use TEST API Keys and for production, use LIVE API KEYS.
-You can get your API_KEYS from the Lazerpay dashboard.
+You can get your LAZER_PUBLIC_KEYS from the Lazerpay dashboard.
 
 ## Lazerpay Methods exposed by the sdk
 
@@ -30,7 +30,7 @@ This describes to allow your customers to initiate a crypto payment transfer.
 ```javascript
 const LazerPay = require('lazerpay-node-sdk');
 
-const lazerpay = new LazerPay(API_KEY);
+const lazerpay = new LazerPay(LAZER_PUBLIC_KEY);
 
 const payment_tx = async () => {
   try {
@@ -58,7 +58,7 @@ This describes to allow you confirm your customers transaction after payment has
 ```javascript
 const LazerPay = require('lazerpay-node-sdk');
 
-const lazerpay = new LazerPay(API_KEY);
+const lazerpay = new LazerPay(LAZER_PUBLIC_KEY);
 
 const confirm_tx = async () => {
   try {
@@ -82,7 +82,7 @@ This gets the list of accepted cryptocurrencies on Lazerpay
 ```javascript
 const LazerPay = require('lazerpay-node-sdk');
 
-const lazerpay = new LazerPay(API_KEY);
+const lazerpay = new LazerPay(LAZER_PUBLIC_KEY);
 
 const get_accepted_coins = async () => {
   try {

@@ -1,16 +1,16 @@
 import { API_URL_CONFIRM_TRANSACTION } from '../../utils/constants';
-import { LazerApi, setApiKey } from '../../utils/api';
+import { LazerApi, setapiPubKey } from '../../utils/api';
 
 type TransactionData = {
   address: string;
-  apiKey: string;
+  apiPubKey: string;
 };
 
 export default async function(args: TransactionData) {
-  const { address, apiKey } = args;
+  const { address, apiPubKey } = args;
 
   try {
-    await setApiKey(apiKey);
+    await setapiPubKey(apiPubKey);
     const response = await LazerApi.get(
       `${API_URL_CONFIRM_TRANSACTION}/${address}`
     );

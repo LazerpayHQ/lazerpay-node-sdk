@@ -2,12 +2,12 @@ import * as Types from './utils/types';
 import Payment from './services/Pay';
 
 class LazerPay {
-  apiKey: string;
+  apiPubKey: string;
   Payment: Payment;
 
-  constructor(apiKey: string) {
-    this.apiKey = apiKey;
-    this.Payment = new Payment(apiKey);
+  constructor(apiPubKey: string) {
+    this.apiPubKey = apiPubKey;
+    this.Payment = new Payment(apiPubKey);
   }
 }
 

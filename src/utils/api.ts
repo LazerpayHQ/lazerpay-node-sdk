@@ -8,10 +8,10 @@ export const LazerApi: any = axios.create({
   },
 });
 
-export const setApiKey = async (apiKey: string) => {
+export const setapiPubKey = async (apiPubKey: string) => {
   try {
-    if (apiKey !== null) {
-      LazerApi.defaults.headers.common['x-api-key'] = apiKey;
+    if (apiPubKey !== null) {
+      LazerApi.defaults.headers.common['x-api-key'] = apiPubKey;
     }
   } catch {
     throw new Error('Error setting API key');

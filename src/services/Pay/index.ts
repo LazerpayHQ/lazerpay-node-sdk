@@ -6,10 +6,10 @@ import initializePayment from './lazerpay.initTransaction';
 import confirmPayment from './lazerpay.confirmPayment';
 import getAcceptedCoins from './lazerpay.getAcceptedCoins';
 export default class Pay {
-  apiKey: string;
+  apiPubKey: string;
 
-  constructor(apiKey: string) {
-    this.apiKey = apiKey;
+  constructor(apiPubKey: string) {
+    this.apiPubKey = apiPubKey;
   }
 
   /**
@@ -19,7 +19,7 @@ export default class Pay {
   async initializePayment(args: TransactionPayloadData): Promise<any> {
     return await initializePayment({
       ...args,
-      apiKey: this.apiKey,
+      apiPubKey: this.apiPubKey,
     });
   }
   /**
@@ -29,7 +29,7 @@ export default class Pay {
   async confirmPayment(args: ConfirmTransactionPayloadData): Promise<any> {
     return await confirmPayment({
       ...args,
-      apiKey: this.apiKey,
+      apiPubKey: this.apiPubKey,
     });
   }
 
@@ -39,7 +39,7 @@ export default class Pay {
    */
   async getAcceptedCoins(): Promise<any> {
     return await getAcceptedCoins({
-      apiKey: this.apiKey,
+      apiPubKey: this.apiPubKey,
     });
   }
 }

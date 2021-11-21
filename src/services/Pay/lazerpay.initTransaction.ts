@@ -1,4 +1,4 @@
-import { LazerApi, setApiKey } from '../../utils/api';
+import { LazerApi, setapiPubKey } from '../../utils/api';
 import { API_URL_INIT_TRANSACTION } from '../../utils/constants';
 
 type TransactionData = {
@@ -7,7 +7,7 @@ type TransactionData = {
   customer_email: string;
   coin: string;
   currency: string;
-  apiKey: string;
+  apiPubKey: string;
 };
 
 export default async function(args: TransactionData) {
@@ -16,12 +16,12 @@ export default async function(args: TransactionData) {
     currency,
     customer_name,
     customer_email,
-    apiKey,
+    apiPubKey,
     coin,
   } = args;
 
   try {
-    await setApiKey(apiKey);
+    await setapiPubKey(apiPubKey);
     const response = await LazerApi.post(API_URL_INIT_TRANSACTION, {
       customer_name,
       customer_email,
