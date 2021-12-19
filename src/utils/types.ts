@@ -8,3 +8,9 @@ export interface TransactionPayloadData {
 export interface ConfirmTransactionPayloadData {
   address: string;
 }
+export interface TransferFundsPayloadData {
+  amount: number;
+  recipient: string;
+  coin: string;
+  blockchain: string;
+}
