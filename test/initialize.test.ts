@@ -9,7 +9,7 @@ describe('#Transaction module', () => {
   //const api_key = process.env.LAZER_API_KEY;
   const lazer = new LazerPay(
     'pk_live_0N24k7lsrr7NGfrDQpIjPGy9z61LkXjUqxX3r99XblXHemwMht',
-    'sk_live_pAjtRGAPUAwd29JId0mDUx1wsoZehY7bZX88mLBSwxRA9Pt8cZ'
+    'sk_alals'
   );
   jest.setTimeout(300000000);
 
