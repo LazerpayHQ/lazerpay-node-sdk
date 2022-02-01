@@ -8,26 +8,24 @@ describe('#Transaction module', () => {
   //new Promise(resolve => setTimeout(resolve, minutes * 60 * 1000));
   //const api_key = process.env.LAZER_API_KEY;
   const lazer = new LazerPay(
-    'pk_test_MNO4a4YaBCmp40YbLDM3xedsO5iDeYNyqA936rTQ1vqtzVUXzi'
+    'pk_live_0N24k7lsrr7NGfrDQpIjPGy9z61LkXjUqxX3r99XblXHemwMht',
+    'sk_alals'
   );
   jest.setTimeout(300000000);
 
   //let address: string;
 
-  it('should initialize a transaction', async () => {
+  it('should payout funds to an address', async () => {
     const transaction_payload = {
-      customer_name: 'Njoku Emmanuel',
-      customer_email: 'kalunjoku123@gmail.com',
-      coin: 'DAI',
-      currency: 'NGN',
-      amount: '56000',
+      amount: 1,
+      recipient: '0x0B4d358D349809037003F96A3593ff9015E89efA',
+      coin: 'BUSD',
+      blockchain: 'Binance Smart Chain',
     };
     try {
-      const response = await lazer.Payment.initializePayment(
-        transaction_payload
-      );
-      console.log(response?.data);
-      expect(response.status).toBe('success');
+      const response = await lazer.Payment.transferFunds(transaction_payload);
+      console.log(response);
+      //expect(response.status).toBe('success');
     } catch (e) {
       console.log(e);
     }

@@ -17,3 +17,12 @@ export const setapiPubKey = async (apiPubKey: string) => {
     throw new Error('Error setting API key');
   }
 };
+export const setApiSecKey = async (apiSecKey: string) => {
+  try {
+    if (apiSecKey !== null) {
+      LazerApi.defaults.headers.common['Authorization'] = `Bearer ${apiSecKey}`;
+    }
+  } catch {
+    throw new Error('Error setting API key');
+  }
+};

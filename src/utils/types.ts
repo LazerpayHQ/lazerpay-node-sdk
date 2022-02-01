@@ -9,3 +9,9 @@ export interface TransactionPayloadData {
 export interface ConfirmTransactionPayloadData {
   identifier: string;
 }
+export interface TransferFundsPayloadData {
+  amount: number;
+  recipient: string;
+  coin: string;
+  blockchain: string;
+}

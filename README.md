@@ -59,7 +59,7 @@ This describes to allow you confirm your customers transaction after payment has
 ```javascript
 const LazerPay = require('lazerpay-node-sdk');
 
-const lazerpay = new LazerPay(LAZER_PUBLIC_KEY);
+const lazerpay = new LazerPay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
 
 const confirm_tx = async () => {
   try {
