@@ -2,6 +2,7 @@ import { LazerApi, setapiPubKey } from '../../utils/api';
 import { API_URL_INIT_TRANSACTION } from '../../utils/constants';
 
 type TransactionData = {
+  reference?: string;
   amount: string;
   customer_name: string;
   customer_email: string;
@@ -12,6 +13,7 @@ type TransactionData = {
 
 export default async function(args: TransactionData) {
   const {
+    reference,
     amount,
     currency,
     customer_name,
@@ -23,6 +25,7 @@ export default async function(args: TransactionData) {
   try {
     await setapiPubKey(apiPubKey);
     const response = await LazerApi.post(API_URL_INIT_TRANSACTION, {
+      reference,
       customer_name,
       customer_email,
       coin,

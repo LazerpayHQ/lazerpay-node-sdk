@@ -1,4 +1,5 @@
 export interface TransactionPayloadData {
+  reference?: string;
   amount: string;
   customer_name: string;
   customer_email: string;
@@ -6,5 +7,5 @@ export interface TransactionPayloadData {
   currency: string;
 }
 export interface ConfirmTransactionPayloadData {
-  address: string;
+  identifier: string;
 }
