@@ -41,6 +41,7 @@ const payment_tx = async () => {
       coin: 'USDC',
       currency: 'NGN',
       fiatAmount: '10',
+      accept_partial_payment: true // By default it's false
     };
 
     const response = await lazer.Payment.initializePayment(transaction_payload);

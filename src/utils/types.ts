@@ -5,6 +5,8 @@ export interface TransactionPayloadData {
   customer_email: string;
   coin: string;
   currency: string;
+  accept_partial_payment: boolean;
+
 }
 export interface ConfirmTransactionPayloadData {
   identifier: string;
