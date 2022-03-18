@@ -1,7 +1,7 @@
 import * as Types from './utils/types';
-import Payment from './services/pay';
+import Payment from './services/payment';
 
-class LazerPay {
+class Lazerpay {
   apiPubKey: string;
   apiSecKey: string;
   Payment: Payment;
@@ -13,5 +13,5 @@ class LazerPay {
   }
 }
 
-export default LazerPay;
+export default Lazerpay;
 export { Types };
