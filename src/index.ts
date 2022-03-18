@@ -1,5 +1,5 @@
 import * as Types from './utils/types';
-import Payment from './services/Pay';
+import Payment from './services/pay';
 
 class LazerPay {
   apiPubKey: string;

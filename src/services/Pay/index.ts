@@ -1,11 +1,11 @@
 import {
   TransactionPayloadData,
   ConfirmTransactionPayloadData,
-  TransferFundsPayloadData,
+  TransferCryptoPayloadData,
 } from '../../utils/types';
 import initializePayment from './lazerpay.initTransaction';
 import confirmPayment from './lazerpay.confirmPayment';
-import transferFunds from './lazerpay.payout';
+import transferFunds from './lazerpay.cryptoPayout';
 import getAcceptedCoins from './lazerpay.getAcceptedCoins';
 export default class Pay {
   apiPubKey: string;
@@ -50,7 +50,7 @@ export default class Pay {
    * Transfer out tokens to external wallet
    * @param payload
    */
-  async transferFunds(args: TransferFundsPayloadData): Promise<any> {
+  async transferFunds(args: TransferCryptoPayloadData): Promise<any> {
     return await transferFunds({
       ...args,
       apiPubKey: this.apiPubKey,
