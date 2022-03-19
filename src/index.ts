@@ -6,6 +6,12 @@ class Lazerpay {
   apiSecKey: string;
   Payment: Payment;
 
+  /**
+   * This is a constructor for creating Lazerpay Instance
+   * @param {string} apiPubKey - Your Lazerpay public Key
+   * @param {string} apiSecKey -  Your Lazerpay secret Key
+   */
+
   constructor(apiPubKey: string, apiSecKey: string) {
     this.apiPubKey = apiPubKey;
     this.apiSecKey = apiSecKey;
