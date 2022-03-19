@@ -1,6 +1,6 @@
 import { TransferCryptoPayloadData } from '../../utils/types';
-import transferCrypto from './lazerpay.cryptoPayout';
-export default class Payment {
+import transferCrypto from './lazerpay.trasnferCrypto';
+export default class Payout {
   apiPubKey: string;
   apiSecKey: string;
   constructor(apiPubKey: string, apiSecKey: string) {

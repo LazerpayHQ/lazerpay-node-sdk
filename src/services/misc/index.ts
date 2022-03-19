@@ -1,5 +1,5 @@
 import getAcceptedCoins from './lazerpay.getAcceptedCoins';
-export default class Payment {
+export default class Misc {
   apiPubKey: string;
   apiSecKey: string;
   constructor(apiPubKey: string, apiSecKey: string) {

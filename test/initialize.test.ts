@@ -23,7 +23,7 @@ describe('#Transaction module', () => {
       blockchain: 'Binance Smart Chain',
     };
     try {
-      const response = await lazer.Payment.transferFunds(transaction_payload);
+      const response = await lazer.Payout.transferCrypto(transaction_payload);
       console.log(response);
       //expect(response.status).toBe('success');
     } catch (e) {
@@ -32,7 +32,7 @@ describe('#Transaction module', () => {
   });
   it('should get accepted coins', async () => {
     try {
-      const response = await lazer.Payment.getAcceptedCoins();
+      const response = await lazer.Misc.getAcceptedCoins();
       console.log(response);
     } catch (err) {
       return err;
