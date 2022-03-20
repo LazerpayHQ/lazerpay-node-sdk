@@ -8,8 +8,8 @@ describe('#Transaction module', () => {
   //new Promise(resolve => setTimeout(resolve, minutes * 60 * 1000));
   //const api_key = process.env.LAZER_API_KEY;
   const lazer = new LazerPay(
-    'pk_live_0N24k7lsrr7NGfrDQpIjPGy9z61LkXjUqxX3r99XblXHemwMht',
-    'sk_alals'
+    'pk_test_8RIEnaxgGIwVaXy3k10YpRRHydD9QLFZMvOc6yn5kd6O3u09Tu',
+    'sk_test_PRjUsHP9h068M7dAt39FBd9vAcB8V8URfMRLEsschnEI8ThrL3'
   );
   jest.setTimeout(300000000);
 

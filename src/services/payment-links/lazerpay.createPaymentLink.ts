@@ -4,13 +4,13 @@ import { API_URL_PAYMENT_LINK } from '../../utils/constants';
 type PaymentLinkData = {
   title: string;
   description: string;
-  logo: string;
+  logo?: Object;
   redirect_url?: string;
   amount: string;
   currency: string;
   apiPubKey: string;
   apiSecKey: string;
-  type: boolean;
+  type: string;
 };
 
 export default async function(args: PaymentLinkData) {

@@ -19,10 +19,9 @@ export interface TransferCryptoPayloadData {
 export interface PaymentLinkPayloadData {
   title: string;
   description: string;
-  logo: string;
+  logo?: object;
   redirect_url?: string;
   amount: string;
   currency: string;
-  apiPubKey: string;
-  type: boolean;
+  type: string;
 }
