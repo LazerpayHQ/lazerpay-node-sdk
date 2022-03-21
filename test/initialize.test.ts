@@ -24,7 +24,7 @@ describe('#Transaction module', () => {
     };
     try {
       const response = await lazer.Payout.transferCrypto(transaction_payload);
-      console.log(response);
+      console.log(response.error);
       //expect(response.status).toBe('success');
     } catch (e) {
       console.log(e);

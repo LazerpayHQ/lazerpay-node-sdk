@@ -19,7 +19,7 @@ describe('#Transaction module', () => {
     const transaction_payload = {
       title: 'Njoku Test',
       description: 'Testing this sdk',
-      amount: '100',
+      logo: 'https://webhook.site/d1e815d0-0aa4-4bee-aeb5-a5eb0f62701a',
       currency: 'NGN',
       type: 'standard',
     };
@@ -27,8 +27,7 @@ describe('#Transaction module', () => {
       const response = await lazer.PaymentLinks.createPaymentLink(
         transaction_payload
       );
-      console.log(response.response.data);
-      //expect(response.status).toBe('success');
+      console.log(response);
     } catch (e) {
       console.log(e);
     }

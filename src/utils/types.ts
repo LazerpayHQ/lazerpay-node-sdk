@@ -19,9 +19,9 @@ export interface TransferCryptoPayloadData {
 export interface PaymentLinkPayloadData {
   title: string;
   description: string;
-  logo?: object;
+  logo?: string;
   redirect_url?: string;
-  amount: string;
-  currency: string;
-  type: string;
+  amount?: string;
+  currency?: string;
+  type?: string;
 }
