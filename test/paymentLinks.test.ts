@@ -20,7 +20,7 @@ describe('#Transaction module', () => {
       title: 'Njoku Test',
       description: 'Testing this sdk',
       logo: 'https://webhook.site/d1e815d0-0aa4-4bee-aeb5-a5eb0f62701a',
-      currency: 'NGN',
+      currency: 'USD',
       type: 'standard',
     };
     try {
@@ -28,6 +28,25 @@ describe('#Transaction module', () => {
         transaction_payload
       );
       console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+
+  // it('should get all payment link', async () => {
+  //   try {
+  //     const response = await lazer.PaymentLinks.getAllPaymentLinks();
+  //     console.log(response);
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // });
+  it('should get a single payment link', async () => {
+    try {
+      const identifier = '7f2vrd8n';
+
+      const response = await lazer.PaymentLinks.getPaymentLink(identifier);
+      console.log(response, 'single link');
     } catch (e) {
       console.log(e);
     }
