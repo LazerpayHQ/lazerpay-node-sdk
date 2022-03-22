@@ -8,8 +8,8 @@ describe('#Transaction module', () => {
   //new Promise(resolve => setTimeout(resolve, minutes * 60 * 1000));
   //const api_key = process.env.LAZER_API_KEY;
   const lazer = new LazerPay(
-    'pk_live_0N24k7lsrr7NGfrDQpIjPGy9z61LkXjUqxX3r99XblXHemwMht',
-    'sk_alals'
+    'pk_test_8RIEnaxgGIwVaXy3k10YpRRHydD9QLFZMvOc6yn5kd6O3u09Tu',
+    'SK_TEST'
   );
   jest.setTimeout(300000000);
 
@@ -23,8 +23,8 @@ describe('#Transaction module', () => {
       blockchain: 'Binance Smart Chain',
     };
     try {
-      const response = await lazer.Payment.transferFunds(transaction_payload);
-      console.log(response);
+      const response = await lazer.Payout.transferCrypto(transaction_payload);
+      console.log(response.error);
       //expect(response.status).toBe('success');
     } catch (e) {
       console.log(e);
@@ -32,7 +32,7 @@ describe('#Transaction module', () => {
   });
   it('should get accepted coins', async () => {
     try {
-      const response = await lazer.Payment.getAcceptedCoins();
+      const response = await lazer.Misc.getAcceptedCoins();
       console.log(response);
     } catch (err) {
       return err;
