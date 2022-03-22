@@ -1,5 +1,5 @@
 <p>
-<img title="Lazerpay" src="https://www.lazerpay.finance/_next/image?url=%2Fimages%2Flogo-blue-variant.svg&w=1920&q=75" />
+<img title="Lazerpay" src= "https://res.cloudinary.com/njokuscript/image/upload/v1646279538/lazerpay_logo_no-bg_trkkye.png"/>
 </p>
 # Lazerpay v1 NodeJS SDK
 
@@ -13,8 +13,7 @@ const Lazerpay = require('lazerpay-node-sdk');
 const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY);
 ```
 
-For staging, Use TEST API Keys and for production, use LIVE API KEYS.
-You can get your LAZER_PUBLIC_KEYS from the Lazerpay dashboard.
+Use TEST API keys for testing, and LIVE API keys for production
 
 ## Lazerpay Methods exposed by the sdk
 
@@ -23,7 +22,7 @@ You can get your LAZER_PUBLIC_KEYS from the Lazerpay dashboard.
 - Initialize Payment
 - Confirm Payment
 
-**2**. **Transer**
+**2**. **Payout**
 
 - Crypto Payout
 - Bank Payout ~ This is coming to V2
