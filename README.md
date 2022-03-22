@@ -10,7 +10,7 @@
 ```javascript
 const Lazerpay = require('lazerpay-node-sdk');
 
-const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY);
+const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
 ```
 
 Use TEST API keys for testing, and LIVE API keys for production
