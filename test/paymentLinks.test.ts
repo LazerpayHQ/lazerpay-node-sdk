@@ -9,7 +9,7 @@ describe('#Transaction module', () => {
   //const api_key = process.env.LAZER_API_KEY;
   const lazer = new Lazerpay(
     'pk_test_8RIEnaxgGIwVaXy3k10YpRRHydD9QLFZMvOc6yn5kd6O3u09Tu',
-    'SK_test'
+    'opa'
   );
   jest.setTimeout(300000000);
 
@@ -46,6 +46,21 @@ describe('#Transaction module', () => {
       const identifier = '7f2vrd8n';
 
       const response = await lazer.PaymentLinks.getPaymentLink(identifier);
+      console.log(response, 'single link');
+    } catch (e) {
+      console.log(e);
+    }
+  });
+  it('should update a  payment link', async () => {
+    try {
+      const transaction_payload = {
+        identifier: '7f2vrd8n',
+        status: 'active',
+      };
+
+      const response = await lazer.PaymentLinks.updatePaymentLink(
+        transaction_payload
+      );
       console.log(response, 'single link');
     } catch (e) {
       console.log(e);

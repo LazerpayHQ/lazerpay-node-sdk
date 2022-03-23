@@ -25,3 +25,7 @@ export interface PaymentLinkPayloadData {
   currency?: string;
   type?: string;
 }
+export interface UpdatePaymentLinkPayloadData {
+  status: string;
+  identifier: string;
+}
