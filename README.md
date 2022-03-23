@@ -32,6 +32,7 @@ Use TEST API keys for testing, and LIVE API keys for production
 - Create payment links
 - Get all payment links
 - Get a single payment link
+- Update a payment Link
 
 **4**. **Misc**
 
@@ -143,6 +144,32 @@ const create_paymentlink_tx = async () => {
   };
   try {
     const response = await lazer.PaymentLinks.createPaymentLink(
+      transaction_payload
+    );
+    console.log(response);
+  } catch (e) {
+    console.log(e);
+  }
+};
+```
+
+#### `Update a payment link`
+
+This describes to allow you disable or enable a Payment Link by updating it
+
+```javascript
+const Lazerpay = require('lazerpay-node-sdk');
+
+const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
+
+const transaction_payload = {
+  identifier: '7f2vrd8n',
+  status: 'inactive', // status should either be active or inactive
+};
+
+const update_paymentLink = async () => {
+  try {
+    const response = await lazer.PaymentLinks.updatePaymentLink(
       transaction_payload
     );
     console.log(response);
