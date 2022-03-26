@@ -9,7 +9,7 @@ describe('#Transaction module', () => {
   //const api_key = process.env.LAZER_API_KEY;
   const lazer = new Lazerpay(
     'pk_test_8RIEnaxgGIwVaXy3k10YpRRHydD9QLFZMvOc6yn5kd6O3u09Tu',
-    'aop'
+    'opa'
   );
   jest.setTimeout(300000000);
 
@@ -55,7 +55,7 @@ describe('#Transaction module', () => {
     try {
       const transaction_payload = {
         identifier: '7f2vrd8n',
-        status: 'inactive',
+        status: 'active',
       };
 
       const response = await lazer.PaymentLinks.updatePaymentLink(

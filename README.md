@@ -155,7 +155,7 @@ const create_paymentlink_tx = async () => {
 
 #### `Update a payment link`
 
-This describes to allow you disable or enable a Payment Link by updating it
+This describes disabling or enabling a payment link by updating it
 
 ```javascript
 const Lazerpay = require('lazerpay-node-sdk');
