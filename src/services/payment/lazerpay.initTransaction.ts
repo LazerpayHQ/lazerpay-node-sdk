@@ -9,7 +9,7 @@ type TransactionData = {
   coin: string;
   currency: string;
   apiPubKey: string;
-  accept_partial_payment: boolean;
+  accept_partial_payment?: boolean;
 };
 
 export default async function(args: TransactionData) {
