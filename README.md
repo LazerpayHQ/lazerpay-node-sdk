@@ -57,7 +57,7 @@ const payment_tx = async () => {
       customer_email: 'kalunjoku123@gmail.com',
       coin: 'BUSD', // BUSD, DAI, USDC or USDT
       currency: 'USD', // NGN, AED, GBP, EUR
-      fiatAmount: '10',
+      amount: 100,
       accept_partial_payment: true, // By default it's false
     };
 
@@ -141,6 +141,7 @@ const create_paymentlink_tx = async () => {
       'https://assets.audiomack.com/fireboydml/bbbd8710eff038d4f603cc39ec94a6a6c2c5b6f4100b28d62557d10d87246f27.jpeg?width=340&height=340&max=true',
     currency: 'USD',
     type: 'standard',
+    amount: 100 // Optional
   };
   try {
     const response = await lazer.PaymentLinks.createPaymentLink(
