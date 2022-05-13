@@ -4,16 +4,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 describe('#Transaction module', () => {
-  //const waitTime = (minutes: number) =>
-  //new Promise(resolve => setTimeout(resolve, minutes * 60 * 1000));
-  //const api_key = process.env.LAZER_API_KEY;
   const lazer = new LazerPay(
-    'pk_test_8RIEnaxgGIwVaXy3k10YpRRHydD9QLFZMvOc6yn5kd6O3u09Tu',
-    'SK_TEST'
+    'pk_test_zwc4UmoI4Job5Wjs9ZySouPicAuGwT7C04JmWwvpSG1vUgrFyY',
+    'sk_test_LG3dTytiANx6ipqO4m8DNfnlx85lIBEL8kDR5k7ejxXwyHYDia'
   );
   jest.setTimeout(300000000);
-
-  //let address: string;
 
   it('should payout funds to an address', async () => {
     const transaction_payload = {
@@ -24,8 +19,8 @@ describe('#Transaction module', () => {
     };
     try {
       const response = await lazer.Payout.transferCrypto(transaction_payload);
-      console.log(response.error);
-      //expect(response.status).toBe('success');
+
+      expect(typeof response).toBe('object');
     } catch (e) {
       console.log(e);
     }
@@ -33,24 +28,41 @@ describe('#Transaction module', () => {
   it('should get accepted coins', async () => {
     try {
       const response = await lazer.Misc.getAcceptedCoins();
-      console.log(response);
+
+      expect(typeof response).toBe('object');
     } catch (err) {
       return err;
     }
   });
-  // it('should confirm a transaction', async () => {
-  //   await waitTime(4);
 
-  //   console.log(address, 'address');
-  //   const payload = {
-  //     address: address,
-  //   };
+  it('it should intialize transaction', async () => {
+    try {
+      const reference = Math.random() * 1000000;
+      const response = await lazer.Payment.initializePayment({
+        reference: reference.toString(),
+        amount: '1',
+        customer_name: 'Njoku Test',
+        customer_email: 'test@gmail.com',
+        coin: 'BUSD',
+        currency: 'USD',
+        accept_partial_payment: true,
+      });
+      expect(typeof response).toBe('object');
+    } catch (e) {
+      console.log(e);
+    }
+  });
 
-  //   try {
-  //     const response = await lazer.Payment.confirmPayment(payload);
-  //     console.log(response, 'from confirming transaction');
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // });
+  it('should confirm a transaction', async () => {
+    const payload = {
+      identifier: '0xa5138755f3EC3F68a51f15C6b2832Da6d7E98122',
+    };
+
+    try {
+      const response = await lazer.Payment.confirmPayment(payload);
+      expect(typeof response).toBe('object');
+    } catch (e) {
+      console.log(e);
+    }
+  });
 });

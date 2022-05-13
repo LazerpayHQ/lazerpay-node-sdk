@@ -10,6 +10,7 @@ type TransactionData = {
   currency: string;
   apiPubKey: string;
   accept_partial_payment?: boolean;
+  metadata?: object | {};
 };
 
 export default async function(args: TransactionData) {
@@ -22,6 +23,7 @@ export default async function(args: TransactionData) {
     apiPubKey,
     coin,
     accept_partial_payment,
+    metadata,
   } = args;
 
   try {
@@ -34,6 +36,7 @@ export default async function(args: TransactionData) {
       currency,
       amount,
       accept_partial_payment,
+      metadata,
     });
 
     return response?.data;

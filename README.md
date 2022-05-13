@@ -59,6 +59,9 @@ const payment_tx = async () => {
       currency: 'USD', // NGN, AED, GBP, EUR
       amount: 100,
       accept_partial_payment: true, // By default it's false
+      metadata: { 
+        type: "Wallet fund"
+      } // Metadata is an optional param
     };
 
     const response = await lazer.Payment.initializePayment(transaction_payload);

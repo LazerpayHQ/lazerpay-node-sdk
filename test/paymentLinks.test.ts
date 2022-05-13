@@ -4,16 +4,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 describe('#Transaction module', () => {
-  //const waitTime = (minutes: number) =>
-  //new Promise(resolve => setTimeout(resolve, minutes * 60 * 1000));
-  //const api_key = process.env.LAZER_API_KEY;
   const lazer = new Lazerpay(
-    'pk_test_8RIEnaxgGIwVaXy3k10YpRRHydD9QLFZMvOc6yn5kd6O3u09Tu',
-    'opa'
+    'pk_test_zwc4UmoI4Job5Wjs9ZySouPicAuGwT7C04JmWwvpSG1vUgrFyY',
+    'sk_test_LG3dTytiANx6ipqO4m8DNfnlx85lIBEL8kDR5k7ejxXwyHYDia'
   );
   jest.setTimeout(300000000);
-
-  //let address: string;
 
   it('should create a payment link', async () => {
     const transaction_payload = {
@@ -27,7 +22,7 @@ describe('#Transaction module', () => {
       const response = await lazer.PaymentLinks.createPaymentLink(
         transaction_payload
       );
-      console.log(response);
+      expect(typeof response).toBe('object');
     } catch (e) {
       console.log(e);
     }
@@ -36,17 +31,17 @@ describe('#Transaction module', () => {
   it('should get all payment link', async () => {
     try {
       const response = await lazer.PaymentLinks.getAllPaymentLinks();
-      console.log(response);
+      expect(typeof response).toBe('object');
     } catch (e) {
       console.log(e);
     }
   });
   it('should get a single payment link', async () => {
     try {
-      const identifier = '7f2vrd8n';
+      const identifier = 'b9diy0ozda';
 
       const response = await lazer.PaymentLinks.getPaymentLink(identifier);
-      console.log(response, 'single link');
+      expect(typeof response).toBe('object');
     } catch (e) {
       console.log(e);
     }
@@ -54,14 +49,14 @@ describe('#Transaction module', () => {
   it('should update a  payment link', async () => {
     try {
       const transaction_payload = {
-        identifier: '7f2vrd8n',
+        identifier: 'b9diy0ozda',
         status: 'active',
       };
 
       const response = await lazer.PaymentLinks.updatePaymentLink(
         transaction_payload
       );
-      console.log(response, 'single link');
+      expect(typeof response).toBe('object');
     } catch (e) {
       console.log(e);
     }
