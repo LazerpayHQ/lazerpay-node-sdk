@@ -30,3 +30,17 @@ export interface UpdatePaymentLinkPayloadData {
   status: string;
   identifier: string;
 }
+
+export interface CryptoSwapPayloadData {
+  amount: number;
+  fromCoin: string;
+  toCoin: string;
+  blockchain: string;
+}
+
+export interface GetCryptoSwapAmountOutPayloadData {
+  amount: number;
+  fromCoin: string;
+  toCoin: string;
+  blockchain: string;
+}

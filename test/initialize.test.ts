@@ -35,6 +35,16 @@ describe('#Transaction module', () => {
     }
   });
 
+  it('should get wallet balance', async () => {
+    try {
+      const response = await lazer.Misc.getWalletBalance('BUSD');
+
+      expect(typeof response).toBe('object');
+    } catch (err) {
+      return err;
+    }
+  });
+
   it('it should intialize transaction', async () => {
     try {
       const reference = Math.random() * 1000000;
@@ -60,6 +70,36 @@ describe('#Transaction module', () => {
 
     try {
       const response = await lazer.Payment.confirmPayment(payload);
+      expect(typeof response).toBe('object');
+    } catch (e) {
+      console.log(e);
+    }
+  });
+
+  it('should swap crypto for another crypto', async () => {
+    const payload = {
+      amount: 1,
+      fromCoin: 'BUSD',
+      toCoin: 'USDT',
+      blockchain: 'Binance Smart Chain',
+    };
+    try {
+      const response = await lazer.Swap.cryptoSwap(payload);
+      expect(typeof response).toBe('object');
+    } catch (e) {
+      console.log(e);
+    }
+  });
+
+  it('should get crypto swap amount out', async () => {
+    const payload = {
+      amount: 1,
+      fromCoin: 'BUSD',
+      toCoin: 'USDT',
+      blockchain: 'Binance Smart Chain',
+    };
+    try {
+      const response = await lazer.Swap.getCryptoSwapAmountOut(payload);
       expect(typeof response).toBe('object');
     } catch (e) {
       console.log(e);
