@@ -35,6 +35,16 @@ describe('#Transaction module', () => {
     }
   });
 
+  it('should get wallet balance', async () => {
+    try {
+      const response = await lazer.Misc.getWalletBalance('BUSD');
+
+      expect(typeof response).toBe('object');
+    } catch (err) {
+      return err;
+    }
+  });
+
   it('it should intialize transaction', async () => {
     try {
       const reference = Math.random() * 1000000;
