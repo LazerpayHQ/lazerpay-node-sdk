@@ -7,3 +7,4 @@ export const API_URL_TRANSFER_FUNDS = `${API_URL}/transfer`;
 export const API_URL_PAYMENT_LINK = `${API_URL}/payment-links`;
 export const API_URL_CRYPTO_SWAP = `${API_URL}/swap/crypto`;
 export const API_URL_GET_CRYPTO_AMOUNT_OUT = `${API_URL}/swap/crypto/amount-out`;
+export const API_URL_GET_WALLET_BALANCE = `${API_URL}/wallet/balance`;
