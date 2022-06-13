@@ -35,12 +35,12 @@ export interface CryptoSwapPayloadData {
   amount: number;
   fromCoin: string;
   toCoin: string;
-  blockchain: 'Binance Smart Chain';
+  blockchain: string;
 }
 
 export interface GetCryptoSwapAmountOutPayloadData {
   amount: number;
   fromCoin: string;
   toCoin: string;
-  blockchain: 'Binance Smart Chain';
+  blockchain: string;
 }
