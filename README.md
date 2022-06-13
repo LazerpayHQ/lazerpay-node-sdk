@@ -1,11 +1,20 @@
 <p>
-<img title="Lazerpay" src= "https://res.cloudinary.com/njokuscript/image/upload/v1646279538/lazerpay_logo_no-bg_trkkye.png"/>
+<img title="Lazerpay" src= "https://res.cloudinary.com/njokuscript/image/upload/v1646279538/lazerpay_logo_no-bg_trkkye.png" width="300px"/>
 </p>
-# Lazerpay v1 NodeJS SDK
+
+#### The Lazerpay v1 NodeJS SDK
 
 ### How to use
 
-`npm install lazerpay-node-sdk`
+```bash 
+npm install lazerpay-node-sdk
+```
+
+Using yarn,
+
+```bash 
+yarn add lazerpay-node-sdk
+```
 
 ```javascript
 const Lazerpay = require('lazerpay-node-sdk');
@@ -27,16 +36,22 @@ Use TEST API keys for testing, and LIVE API keys for production
 - Crypto Payout
 - Bank Payout ~ This is coming to V2
 
-**3**. **Payment Links**
+**3**. **Swap**
+
+- Crypto swap
+- Get Crypto Swap Amount Out
+
+**4**. **Payment Links**
 
 - Create payment links
 - Get all payment links
 - Get a single payment link
 - Update a payment Link
 
-**4**. **Misc**
+**5**. **Misc**
 
 - Get all accepted coins
+- Get wallet balance
 
 ## Payment
 
@@ -118,6 +133,58 @@ const crypto_payout_tx = async () => {
   };
   try {
     const response = await lazer.Payout.transferCrypto(transaction_payload);
+    console.log(response.error);
+  } catch (e) {
+    console.log(e);
+  }
+};
+```
+
+## Swap
+
+#### `Crypto swap`
+
+This describes to allow you swap swap between two stable coins 
+
+```javascript
+const Lazerpay = require('lazerpay-node-sdk');
+
+const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
+
+const crypto_swap_tx = async () => {
+  const swap_payload = {
+      amount: 100,
+      fromCoin: 'BUSD',
+      toCoin: 'USDT',
+      blockchain: 'Binance Smart Chain',
+  };
+  try {
+    const response = await lazer.Swap.cryptoSwap(swap_payload);
+    console.log(response.error);
+  } catch (e) {
+    console.log(e);
+  }
+};
+```
+
+#### `Get Crypto Swap Amount Out`
+
+This describes the amount you will receive on swap even before initiating the swap  
+
+```javascript
+const Lazerpay = require('lazerpay-node-sdk');
+
+const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
+
+const crypto_swap_tx = async () => {
+  const swap_payload = {
+      amount: 100,
+      fromCoin: 'BUSD',
+      toCoin: 'USDT',
+      blockchain: 'Binance Smart Chain',
+  };
+  try {
+    const response = await lazer.Swap.getCryptoSwapAmountOut(swap_payload);
     console.log(response.error);
   } catch (e) {
     console.log(e);
@@ -237,6 +304,27 @@ const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
 const get_accepted_coins = async () => {
   try {
     const response = await lazer.Misc.getAcceptedCoins();
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
+
+
+#### `Get Wallet Balance`
+
+Get get wallet balance by specifying the coin
+
+```javascript
+const Lazerpay = require('lazerpay-node-sdk');
+
+const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
+
+const get_wallet_balance = async () => {
+  try {
+    const coin = "USDT" // BUSD, DAI, USDC or USDT
+    const response = await lazer.Misc.getWalletBalance(coin);
     console.log(response);
   } catch (error) {
     console.log(error);
