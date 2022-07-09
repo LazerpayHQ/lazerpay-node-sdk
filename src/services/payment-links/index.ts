@@ -7,10 +7,8 @@ import getPaymentLinks from './lazerpay.getAllPaymentLinks';
 import getPaymentLink from './lazerpay.getPaymentLink';
 import updatePaymentLink from './lazerpay.updatePaymentLink';
 export default class PaymentLink {
-  apiPubKey: string;
   apiSecKey: string;
-  constructor(apiPubKey: string, apiSecKey: string) {
-    this.apiPubKey = apiPubKey;
+  constructor(apiSecKey: string) {
     this.apiSecKey = apiSecKey;
   }
 
@@ -21,7 +19,6 @@ export default class PaymentLink {
   async createPaymentLink(args: PaymentLinkPayloadData): Promise<any> {
     return await createPaymentLink({
       ...args,
-      apiPubKey: this.apiPubKey,
       apiSecKey: this.apiSecKey,
     });
   }
@@ -31,7 +28,6 @@ export default class PaymentLink {
    */
   async getAllPaymentLinks(): Promise<any> {
     return await getPaymentLinks({
-      apiPubKey: this.apiPubKey,
       apiSecKey: this.apiSecKey,
     });
   }
@@ -42,7 +38,6 @@ export default class PaymentLink {
   async getPaymentLink(identifier: string): Promise<any> {
     return await getPaymentLink({
       identifier,
-      apiPubKey: this.apiPubKey,
       apiSecKey: this.apiSecKey,
     });
   }
@@ -53,7 +48,6 @@ export default class PaymentLink {
   async updatePaymentLink(args: UpdatePaymentLinkPayloadData): Promise<any> {
     return await updatePaymentLink({
       ...args,
-      apiPubKey: this.apiPubKey,
       apiSecKey: this.apiSecKey,
     });
   }
