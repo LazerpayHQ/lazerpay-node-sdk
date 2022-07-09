@@ -7,10 +7,11 @@ type CryptoSwapData = {
   toCoin: string;
   blockchain: string;
   apiSecKey: string;
+  metadata?: object | {};
 };
 
 export default async function(args: CryptoSwapData) {
-  const { amount, fromCoin, toCoin, blockchain, apiSecKey } = args;
+  const { amount, fromCoin, toCoin, blockchain, apiSecKey, metadata } = args;
 
   try {
     await setApiSecKey(apiSecKey);
@@ -19,6 +20,7 @@ export default async function(args: CryptoSwapData) {
       fromCoin,
       toCoin,
       blockchain,
+      metadata,
     });
 
     return response?.data;
