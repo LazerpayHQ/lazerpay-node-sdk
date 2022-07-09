@@ -24,10 +24,10 @@ class Lazerpay {
     this.apiPubKey = apiPubKey;
     this.apiSecKey = apiSecKey;
     this.Payment = new Payment(apiPubKey, apiSecKey);
-    this.Payout = new Payout(apiPubKey, apiSecKey);
-    this.Swap = new Swap(apiPubKey, apiSecKey);
-    this.PaymentLinks = new PaymentLink(apiPubKey, apiSecKey);
-    this.Misc = new Misc(apiPubKey, apiSecKey);
+    this.Payout = new Payout(apiSecKey);
+    this.Swap = new Swap(apiSecKey);
+    this.PaymentLinks = new PaymentLink(apiSecKey);
+    this.Misc = new Misc(apiSecKey, apiPubKey);
   }
 }
 

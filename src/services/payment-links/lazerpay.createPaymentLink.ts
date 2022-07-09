@@ -1,4 +1,4 @@
-import { LazerApi, setapiPubKey, setApiSecKey } from '../../utils/api';
+import { LazerApi, setApiSecKey } from '../../utils/api';
 import { API_URL_PAYMENT_LINK } from '../../utils/constants';
 
 type PaymentLinkData = {
@@ -8,7 +8,6 @@ type PaymentLinkData = {
   redirect_url?: string;
   amount?: string;
   currency?: string;
-  apiPubKey: string;
   apiSecKey: string;
   type?: string;
 };
@@ -22,12 +21,10 @@ export default async function(args: PaymentLinkData) {
     redirect_url,
     amount,
     currency,
-    apiPubKey,
     apiSecKey,
   } = args;
 
   try {
-    await setapiPubKey(apiPubKey);
     await setApiSecKey(apiSecKey);
     const response = await LazerApi.post(API_URL_PAYMENT_LINK, {
       title,

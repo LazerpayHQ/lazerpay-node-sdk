@@ -5,10 +5,8 @@ import {
 import cryptoSwap from './lazerpay.cryptoSwap';
 import getCryptoSwapAmountOut from './lazerpay.getCryptoAmountOut';
 export default class Swap {
-  apiPubKey: string;
   apiSecKey: string;
-  constructor(apiPubKey: string, apiSecKey: string) {
-    this.apiPubKey = apiPubKey;
+  constructor(apiSecKey: string) {
     this.apiSecKey = apiSecKey;
   }
 

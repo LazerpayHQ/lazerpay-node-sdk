@@ -1,10 +1,8 @@
 import { TransferCryptoPayloadData } from '../../utils/types';
 import transferCrypto from './lazerpay.transferCrypto';
 export default class Payout {
-  apiPubKey: string;
   apiSecKey: string;
-  constructor(apiPubKey: string, apiSecKey: string) {
-    this.apiPubKey = apiPubKey;
+  constructor(apiSecKey: string) {
     this.apiSecKey = apiSecKey;
   }
 
@@ -15,7 +13,6 @@ export default class Payout {
   async transferCrypto(args: TransferCryptoPayloadData): Promise<any> {
     return await transferCrypto({
       ...args,
-      apiPubKey: this.apiPubKey,
       apiSecKey: this.apiSecKey,
     });
   }
