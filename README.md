@@ -130,6 +130,9 @@ const crypto_payout_tx = async () => {
     recipient: '0x0B4d358D349809037003F96A3593ff9015E89efA', // address must be a bep20 address
     coin: 'BUSD',
     blockchain: 'Binance Smart Chain',
+    metadata: {
+      id: "343243243223432"
+    } // Metadata is an optional param
   };
   try {
     const response = await lazer.Payout.transferCrypto(transaction_payload);
@@ -157,6 +160,9 @@ const crypto_swap_tx = async () => {
       fromCoin: 'BUSD',
       toCoin: 'USDT',
       blockchain: 'Binance Smart Chain',
+      metadata: {
+      id: "343243243223432"
+    } // Metadata is an optional param
   };
   try {
     const response = await lazer.Swap.cryptoSwap(swap_payload);
