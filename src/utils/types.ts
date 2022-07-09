@@ -16,6 +16,7 @@ export interface TransferCryptoPayloadData {
   recipient: string;
   coin: string;
   blockchain: string;
+  metadata?: object | {};
 }
 export interface PaymentLinkPayloadData {
   title: string;
@@ -36,6 +37,7 @@ export interface CryptoSwapPayloadData {
   fromCoin: string;
   toCoin: string;
   blockchain: string;
+  metadata?: object | {};
 }
 
 export interface GetCryptoSwapAmountOutPayloadData {
