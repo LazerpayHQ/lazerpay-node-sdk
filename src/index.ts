@@ -27,7 +27,7 @@ class Lazerpay {
     this.Payout = new Payout(apiSecKey);
     this.Swap = new Swap(apiSecKey);
     this.PaymentLinks = new PaymentLink(apiSecKey);
-    this.Misc = new Misc(apiSecKey, apiPubKey);
+    this.Misc = new Misc(apiPubKey, apiSecKey);
   }
 }
 
