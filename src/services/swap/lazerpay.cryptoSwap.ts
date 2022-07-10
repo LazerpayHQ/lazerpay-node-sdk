@@ -25,6 +25,6 @@ export default async function(args: CryptoSwapData) {
 
     return response?.data;
   } catch (err) {
-    return err;
+    throw err;
   }
 }

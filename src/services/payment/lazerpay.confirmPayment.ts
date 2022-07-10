@@ -17,7 +17,6 @@ export default async function(args: TransactionData) {
 
     return response.data;
   } catch (err) {
-    console.log(err);
-    return err;
+    throw err;
   }
 }

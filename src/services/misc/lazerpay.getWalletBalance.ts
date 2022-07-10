@@ -17,6 +17,6 @@ export default async function(args: GetWalletBalanceData) {
 
     return response?.data;
   } catch (err) {
-    return err;
+    throw err;
   }
 }
