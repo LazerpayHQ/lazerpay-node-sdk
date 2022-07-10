@@ -37,7 +37,7 @@ export default async function(args: PaymentLinkData) {
     });
 
     return response?.data;
-  } catch (err) {
-    return err;
+  } catch (err: any) {
+    throw err?.response?.data;
   }
 }

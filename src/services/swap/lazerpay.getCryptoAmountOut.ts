@@ -22,7 +22,7 @@ export default async function(args: GetCryptoSwapAmountOutData) {
     });
 
     return response?.data;
-  } catch (err) {
-    return err;
+  } catch (err: any) {
+    throw err?.response?.data;
   }
 }

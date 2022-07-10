@@ -13,7 +13,7 @@ export default async function(args: TransactionData) {
     const response = await LazerApi.get(API_URL_GET_ACCEPTED_COINS);
 
     return response?.data;
-  } catch (err) {
-    return err;
+  } catch (err: any) {
+    throw err?.response?.data;
   }
 }
