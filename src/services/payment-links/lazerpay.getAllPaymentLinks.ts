@@ -13,7 +13,7 @@ export default async function(args: PaymentLinkData) {
     const response = await LazerApi.get(API_URL_PAYMENT_LINK);
 
     return response?.data;
-  } catch (err: any) {
-    throw err?.response?.data;
+  } catch (err) {
+    throw err;
   }
 }

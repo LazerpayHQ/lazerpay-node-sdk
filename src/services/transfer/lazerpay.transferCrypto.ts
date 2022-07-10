@@ -24,7 +24,7 @@ export default async function(args: TransactionData) {
     });
 
     return response?.data;
-  } catch (err: any) {
-    throw err?.response?.data;
+  } catch (err) {
+    throw err;
   }
 }
