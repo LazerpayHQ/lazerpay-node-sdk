@@ -46,3 +46,16 @@ export interface GetCryptoSwapAmountOutPayloadData {
   toCoin: string;
   blockchain: string;
 }
+
+export interface GetOnrampRatePayloadData {
+  currency: string;
+}
+
+export interface InitiateOnrampPayloadData {
+  reference: string;
+  accountId: string;
+  amount: number;
+  currency: string;
+  coin: string;
+  metadata?: object | {};
+}

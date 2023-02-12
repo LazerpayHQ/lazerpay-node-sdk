@@ -36,11 +36,11 @@
   "size-limit": [
     {
       "path": "dist/lazerpay-node-sdk.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "10.5 KB"
     },
     {
       "path": "dist/lazerpay-node-sdk.esm.js",
-      "limit": "10 KB"
+      "limit": "10.5 KB"
     }
   ],
   "devDependencies": {
