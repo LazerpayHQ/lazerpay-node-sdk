@@ -1,5 +1,7 @@
 import getAcceptedCoins from './lazerpay.getAcceptedCoins';
 import getWalletBalance from './lazerpay.getWalletBalance';
+import getCurrencies from './lazerpay.getAcceptedCurrencies';
+
 export default class Misc {
   apiPubKey: string;
   apiSecKey: string;
@@ -14,6 +16,17 @@ export default class Misc {
    */
   async getAcceptedCoins(): Promise<any> {
     return await getAcceptedCoins({
+      apiPubKey: this.apiPubKey,
+    });
+  }
+
+  /**
+   * list of currencies
+   * @param payload
+   */
+
+  async getAcceptedCurrencies(): Promise<any> {
+    return await getCurrencies({
       apiPubKey: this.apiPubKey,
     });
   }

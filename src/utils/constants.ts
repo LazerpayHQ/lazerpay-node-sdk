@@ -3,6 +3,7 @@ export const API_URL = 'https://api.lazerpay.engineering/api/v1';
 export const API_URL_INIT_TRANSACTION = `${API_URL}/transaction/initialize`;
 export const API_URL_CONFIRM_TRANSACTION = `${API_URL}/transaction/verify`;
 export const API_URL_GET_ACCEPTED_COINS = `${API_URL}/coins`;
+export const API_URL_GET_ACCEPTED_CURRENCIES = `${API_URL}/currencies`;
 export const API_URL_TRANSFER_FUNDS = `${API_URL}/crypto/payouts/initiate`;
 export const API_URL_PAYMENT_LINK = `${API_URL}/payment-links`;
 export const API_URL_CRYPTO_SWAP = `${API_URL}/swap/crypto`;

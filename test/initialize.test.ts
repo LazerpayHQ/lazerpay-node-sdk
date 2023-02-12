@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 describe('#Transaction module', () => {
-  const lazer = new Lazerpay(
+  const lazerpay = new Lazerpay(
     'pk_test_zwc4UmoI4Job5Wjs9ZySouPicAuGwT7C04JmWwvpSG1vUgrFyY',
     'sk_test_LG3dTytiANx6ipqO4m8DNfnlx85lIBEL8kDR5k7ejxXwyHYDia'
   );
@@ -18,7 +18,7 @@ describe('#Transaction module', () => {
       blockchain: 'Binance Smart Chain',
     };
     try {
-      const response = await lazer.Payout.transferCrypto(transaction_payload);
+      const response = await lazerpay.Payout.transferCrypto(transaction_payload);
 
       expect(typeof response).toBe('object');
     } catch (e) {
@@ -27,7 +27,17 @@ describe('#Transaction module', () => {
   });
   it('should get accepted coins', async () => {
     try {
-      const response = await lazer.Misc.getAcceptedCoins();
+      const response = await lazerpay.Misc.getAcceptedCoins();
+
+      expect(typeof response).toBe('object');
+    } catch (err) {
+      return err;
+    }
+  });
+
+  it('should get accepted currencies', async () => {
+    try {
+      const response = await lazerpay.Misc.getAcceptedCurrencies();
 
       expect(typeof response).toBe('object');
     } catch (err) {
@@ -37,7 +47,7 @@ describe('#Transaction module', () => {
 
   it('should get wallet balance', async () => {
     try {
-      const response = await lazer.Misc.getWalletBalance('BUSD');
+      const response = await lazerpay.Misc.getWalletBalance('BUSD');
 
       expect(typeof response).toBe('object');
     } catch (err) {
@@ -55,7 +65,7 @@ describe('#Transaction module', () => {
           .toString(36)
           .substring(2, 15);
 
-      const response = await lazer.Payment.initializePayment({
+      const response = await lazerpay.Payment.initializePayment({
         reference: reference.toString(),
         amount: '1',
         customer_name: 'Njoku Test',
@@ -76,7 +86,7 @@ describe('#Transaction module', () => {
     };
 
     try {
-      const response = await lazer.Payment.confirmPayment(payload);
+      const response = await lazerpay.Payment.confirmPayment(payload);
       expect(typeof response).toBe('object');
     } catch (e) {
       console.log(e);
@@ -91,7 +101,7 @@ describe('#Transaction module', () => {
       blockchain: 'Binance Smart Chain',
     };
     try {
-      const response = await lazer.Swap.cryptoSwap(payload);
+      const response = await lazerpay.Swap.cryptoSwap(payload);
       expect(typeof response).toBe('object');
     } catch (e) {
       console.log(e);
@@ -106,7 +116,7 @@ describe('#Transaction module', () => {
       blockchain: 'Binance Smart Chain',
     };
     try {
-      const response = await lazer.Swap.getCryptoSwapAmountOut(payload);
+      const response = await lazerpay.Swap.getCryptoSwapAmountOut(payload);
       expect(typeof response).toBe('object');
     } catch (e) {
       console.log(e);
