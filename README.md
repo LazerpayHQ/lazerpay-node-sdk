@@ -48,10 +48,17 @@ Use TEST API keys for testing, and LIVE API keys for production
 - Get a single payment link
 - Update a payment Link
 
-**5**. **Misc**
+**5**. **Onramp**
+- Get Rate
+- Get Accounts
+- Initiate
+
+**6**. **Misc**
 
 - Get all accepted coins
+- Get all accepted currencies
 - Get wallet balance
+
 
 ## Payment
 
@@ -60,10 +67,6 @@ Use TEST API keys for testing, and LIVE API keys for production
 This describes to allow your customers to initiate a crypto payment transfer.
 
 ```javascript
-const Lazerpay = require('lazerpay-node-sdk');
-
-const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
-
 const payment_tx = async () => {
   try {
     const transaction_payload = {
@@ -72,7 +75,7 @@ const payment_tx = async () => {
       customer_email: 'kalunjoku123@gmail.com',
       coin: 'BUSD', // BUSD, DAI, USDC or USDT
       currency: 'USD', // NGN, AED, GBP, EUR
-      amount: 100,
+      amount: '100',
       accept_partial_payment: true, // By default it's false
       metadata: { 
         type: "Wallet fund"
@@ -93,10 +96,6 @@ const payment_tx = async () => {
 This describes to allow you confirm your customers transaction after payment has been made.
 
 ```javascript
-const Lazerpay = require('lazerpay-node-sdk');
-
-const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
-
 const confirm_tx = async () => {
   try {
     const payload = {
@@ -120,10 +119,6 @@ const confirm_tx = async () => {
 This describes to allow you withdraw the crypto in their lazerpay balance to an external address
 
 ```javascript
-const Lazerpay = require('lazerpay-node-sdk');
-
-const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
-
 const crypto_payout_tx = async () => {
   const transaction_payload = {
     amount: 1,
@@ -150,10 +145,6 @@ const crypto_payout_tx = async () => {
 This describes to allow you swap swap between two stable coins 
 
 ```javascript
-const Lazerpay = require('lazerpay-node-sdk');
-
-const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
-
 const crypto_swap_tx = async () => {
   const swap_payload = {
       amount: 100,
@@ -178,10 +169,6 @@ const crypto_swap_tx = async () => {
 This describes the amount you will receive on swap even before initiating the swap  
 
 ```javascript
-const Lazerpay = require('lazerpay-node-sdk');
-
-const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
-
 const crypto_swap_tx = async () => {
   const swap_payload = {
       amount: 100,
@@ -205,10 +192,6 @@ const crypto_swap_tx = async () => {
 This describes to allow you create a Payment link programatically
 
 ```javascript
-const Lazerpay = require('lazerpay-node-sdk');
-
-const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
-
 const create_paymentlink_tx = async () => {
   const transaction_payload = {
     title: 'Njoku Test',
@@ -235,10 +218,6 @@ const create_paymentlink_tx = async () => {
 This describes disabling or enabling a payment link by updating it
 
 ```javascript
-const Lazerpay = require('lazerpay-node-sdk');
-
-const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
-
 const transaction_payload = {
   identifier: '7f2vrd8n',
   status: 'inactive', // status should either be active or inactive
@@ -261,10 +240,6 @@ const update_paymentLink = async () => {
 This describes to allow you get all Payment links created
 
 ```javascript
-const Lazerpay = require('lazerpay-node-sdk');
-
-const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
-
 const get_all_paymentlinks = async () => {
   try {
     const response = await lazerpay.PaymentLinks.getAllPaymentLinks();
@@ -280,10 +255,6 @@ const get_all_paymentlinks = async () => {
 This describes to allow you get a Payment link by it's identifier
 
 ```javascript
-const Lazerpay = require('lazerpay-node-sdk');
-
-const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
-
 const identifier = '7f2vrd8n';
 
 const get_paymentlink = async () => {
@@ -296,6 +267,58 @@ const get_paymentlink = async () => {
 };
 ```
 
+## Onramp 
+
+#### `Get rate`
+
+This methods lets you get onramp rate
+
+```javascript
+ const get_onramp_rate = async () => {
+  try {
+    const response = await lazerpay.Onramp.getOnrampRate({
+      currency: 'NGN',
+    });
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
+
+#### `Get Accounts`
+This methods lets get your onramp bank accounts
+```javascript
+ const get_onramp_accounts = async () => {
+  try {
+    const response = await lazer.Onramp.getOnrampAccounts();
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
+
+#### `Initiate`
+This methods lets you initiate onramp request
+```javascript
+ const initiate_onramp = async () => {
+  try {
+   const response = await lazer.Onramp.initiateOnramp({
+      amount: 10000,
+      currency: 'NGN',
+      accountId: "Account id",
+      reference: "Payment reference",
+      coin: 'USDT',
+    });
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
+
+
 ## Misc
 
 #### `Get Accepted Coins`
@@ -303,13 +326,25 @@ const get_paymentlink = async () => {
 This gets the list of accepted cryptocurrencies on Lazerpay
 
 ```javascript
-const Lazerpay = require('lazerpay-node-sdk');
-
-const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
-
 const get_accepted_coins = async () => {
   try {
     const response = await lazerpay.Misc.getAcceptedCoins();
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
+
+
+#### `Get Accepted Currencies`
+
+This gets the list of accepted Currencies on Lazerpay
+
+```javascript
+const get_accepted_currencies = async () => {
+  try {
+    const response = await lazerpay.Misc.getAcceptedCurrencies();
     console.log(response);
   } catch (error) {
     console.log(error);
@@ -323,10 +358,6 @@ const get_accepted_coins = async () => {
 Get get wallet balance by specifying the coin
 
 ```javascript
-const Lazerpay = require('lazerpay-node-sdk');
-
-const lazerpay = new Lazerpay(LAZER_PUBLIC_KEY, LAZER_SECRET_KEY);
-
 const get_wallet_balance = async () => {
   try {
     const coin = "USDT" // BUSD, DAI, USDC or USDT
