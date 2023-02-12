@@ -4,6 +4,7 @@ import PaymentLink from './services/payment-links';
 import Payout from './services/transfer';
 import Swap from './services/swap';
 import Misc from './services/misc';
+import Onramp from './services/onramp';
 
 class Lazerpay {
   apiPubKey: string;
@@ -13,6 +14,7 @@ class Lazerpay {
   Swap: Swap;
   PaymentLinks: PaymentLink;
   Misc: Misc;
+  Onramp: Onramp;
 
   /**
    * This is a constructor for creating Lazerpay Instance
@@ -28,6 +30,7 @@ class Lazerpay {
     this.Swap = new Swap(apiSecKey);
     this.PaymentLinks = new PaymentLink(apiSecKey);
     this.Misc = new Misc(apiPubKey, apiSecKey);
+    this.Onramp = new Onramp(apiSecKey);
   }
 }
 
