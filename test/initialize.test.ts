@@ -1,10 +1,10 @@
-import LazerPay from '../src/index';
+import Lazerpay from '../src/index';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
 describe('#Transaction module', () => {
-  const lazer = new LazerPay(
+  const lazer = new Lazerpay(
     'pk_test_zwc4UmoI4Job5Wjs9ZySouPicAuGwT7C04JmWwvpSG1vUgrFyY',
     'sk_test_LG3dTytiANx6ipqO4m8DNfnlx85lIBEL8kDR5k7ejxXwyHYDia'
   );
@@ -47,7 +47,14 @@ describe('#Transaction module', () => {
 
   it('it should intialize transaction', async () => {
     try {
-      const reference = Math.random() * 1000000;
+      const reference =
+        Math.random()
+          .toString(36)
+          .substring(2, 15) +
+        Math.random()
+          .toString(36)
+          .substring(2, 15);
+
       const response = await lazer.Payment.initializePayment({
         reference: reference.toString(),
         amount: '1',
