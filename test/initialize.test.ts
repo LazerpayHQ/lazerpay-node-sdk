@@ -18,7 +18,9 @@ describe('#Transaction module', () => {
       blockchain: 'Binance Smart Chain',
     };
     try {
-      const response = await lazerpay.Payout.transferCrypto(transaction_payload);
+      const response = await lazerpay.Payout.transferCrypto(
+        transaction_payload
+      );
 
       expect(typeof response).toBe('object');
     } catch (e) {
